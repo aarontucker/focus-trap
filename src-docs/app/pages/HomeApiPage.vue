@@ -26,6 +26,10 @@
               name: 'deactivated',
               type: 'emitted',
               description: 'Fired when the `FocusTrap` is deactivated.'
+            }, {
+              name: 'outside-click',
+              type: 'emitted',
+              description: 'Fired when prop `allowOutsideClick` is `true` and a click is performed outside the focus trap.'
             }
           ],
           props: [
@@ -65,6 +69,12 @@
               required: false,
               default: '`true`',
               description: 'If `false`, when the trap is deactivated, focus will not return to the element that had focus before activation.'
+            }, {
+              name: 'allowOutsideClick',
+              type: '`Function`',
+              required: false,
+              default: '`null`',
+              description: 'If set to a `Function`, clicking outside the focus trap will execute this function. If the function returns true, the focus trap will allow the click to execute, otherwise it will not.'
             }
           ]
         }
