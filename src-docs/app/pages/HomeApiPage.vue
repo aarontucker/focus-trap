@@ -60,6 +60,12 @@
               default: '`false`',
               description: 'If `true`, a click outside the focus trap will deactivate the focus trap and allow the click event to do its thing.'
             }, {
+              name: 'deactivateOnMouseleave',
+              type: '`Boolean`',
+              required: false,
+              default: '`false`',
+              description: 'If `true`, the focus trap will deactivate on the mouseleave event.'
+            }, {
               name: 'returnFocusOnDeactivate',
               type: '`Boolean`',
               required: false,

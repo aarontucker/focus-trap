@@ -32,6 +32,10 @@
         type: Boolean,
         default: false
       },
+      deactivateOnMouseleave: {
+        type: Boolean,
+        default: false
+      },
       returnFocusOnDeactivate: {
         type: Boolean,
         default: true
@@ -48,9 +52,14 @@
     },
     mounted () {
       this.initFocusTrap()
+
+      if (this.deactivateOnMouseleave) {
+        this.$el.addEventListener('mouseleave', this.onMouseleave)
+      }
     },
     beforeDestroy () {
       this.focusTrap.deactivate()
+      this.$el.removeEventListener('mouseleave', this.onMouseleave)
     },
     methods: {
       initFocusTrap () {
@@ -80,6 +89,9 @@
       },
       onDeactivate () {
         this.$emit('deactivated')
+      },
+      onMouseleave () {
+        this.focusTrap.deactivate()
       }
     },
     watch: {
